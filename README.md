@@ -18,24 +18,43 @@ pip install -r requirements.txt
 1. Edit `.env`
 2. Add `HF_TOKEN` with your token from HF
 
-### 3. Run task2
-```
-cd assignment2
-```
+### 3. Running task2
+
+#### Setup the Task To Run
+
 1. Some sample tasks are defined in directory `tasks`
 2. Choose a task of your liking
 3. Edit the main function in `assignment/agent_runner.py` 
-3. Run `assignment/agent_runner.py`
 
 
 For e.g:, Update the `task_path` and `models` to your choice
 ```
+cd assignment2
+vim agent_runner.py
+
+'''
 task_path = os.path.join(PROJECT_ROOT, "tasks/spellcheck-word-boundary")
-    models = [
+models = [
         ("QwenAgent", "Qwen/Qwen2.5-Coder-32B-Instruct"),
         ("MetaAgent", "meta-llama/Llama-3.3-70B-Instruct"),
     ]
+
+task = Task(task_path)
+agent = Agent(
+    system_prompt=terminal_bench_agent_prompt,
+    agent_id=models[0][0],
+    model_id=models[0][1],
+)
+'''
 ```
+
+#### Running the agent
+
+```
+cd assignment2
+python agent_runner.py
+```
+
 
 Sample STDOUT
 ```
@@ -70,4 +89,12 @@ CONTAINER ID   IMAGE                            COMMAND        CREATED          
    "observation": "(no output)",
    "exit_code": 0
 }
+...
+
+Computing reward for task: deep-json-merger
+{'binary_reward': 1.0, 'shaped_reward': 0.97, 'steps_taken': 8, 'test_output': 'Verification successful!\nREWARD = 1 (PASS)\n'}
+Successfully created: /Users/xxx/Documents/projects/rl_data/results/QwenAgent/deep-json-merger/attempt4
+Trajectory saved to: '/Users/xxx/Documents/projects/rl_data/results/QwenAgent/deep-json-merger/attempt4/trajectory.json'
+Rewards saved to: '/Users/xxx/Documents/projects/rl_data/results/QwenAgent/spellcheck-word-boundary/attempt4/rewards.json'
+Stopping and removing docker container: 36ef0cb6c836bb357b54667d77cd751cf0ecdca6f0f813a50b644c49bf760a3e
 ```
