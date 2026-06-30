@@ -1,0 +1,11 @@
+[task]
+name = "fix-bash-cleanup-script"
+description = "Fix a bash cleanup script that fails because it uses rm on a directory without the -r flag"
+points = 100
+
+[files]
+main_file = "cleanup.sh"
+
+[test]
+command = "./cleanup.sh"
+expected_exit_code = 0

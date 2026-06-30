@@ -1,0 +1,21 @@
+[task]
+name = "fix-empty-data-metrics"
+description = "Fix a script that crashes with ZeroDivisionError when processing empty data metrics"
+points = 100
+
+[environment]
+image = "python:3.9-slim"
+working_dir = "/app"
+
+[files]
+process_metrics.py = "import sys\n\ndef calculate_average(metrics):\n    total = sum(metrics)\n    count = len(metrics)\n    return total / count\n\nif __name__ == "__main__":\n    if len(sys.argv) < 2:\n        print("Usage: python process_metrics.py <metric1> <metric2> ...")\n        sys.exit(1)\n    \n    metrics = [float(x) for x in sys.argv[1:]]\n    result = calculate_average(metrics)\n    print(f\"Average: {result}\")"
+
+test_data_empty.csv = ""
+test_data_valid.csv = "10,20,30,40,50"
+
+test_cases = [
+    {"name": "empty_input", "args": [], "expected_exit_code": 1},
+    {"name": "zero_metrics", "args": ["0", "0", "0"], "expected_output": "Average: 0.0"},
+    {"name": "mixed_metrics", "args": ["10", "20", "30"], "expected_output": "Average: 20.0"},
+    {"name": "single_metric", "args": ["42"], "expected_output": "Average: 42.0"}
+]

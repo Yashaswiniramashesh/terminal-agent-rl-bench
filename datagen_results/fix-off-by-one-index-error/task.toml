@@ -1,0 +1,18 @@
+[task]
+name = "fix-off-by-one-index-error"
+description = "Fix off-by-one index error in Python list processing script"
+points = 100
+
+[files]
+main.py = "def sum_even_indices(numbers):
+    total = 0
+    for i in range(1, len(numbers), 2):  # BUG: starts at 1 instead of 0
+        total += numbers[i]  # BUG: accessing odd indices instead of even
+    return total
+
+# Test cases
+print(sum_even_indices([1, 2, 3, 4, 5]))  # Expected: 9 (1 + 3 + 5)
+print(sum_even_indices([]))              # Expected: 0
+print(sum_even_indices([10]))            # Expected: 10
+print(sum_even_indices([1, 2]))          # Expected: 1
+print(sum_even_indices([5, 10, 15, 20])) # Expected: 20 (5 + 15)"
