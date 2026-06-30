@@ -1,0 +1,31 @@
+[metadata]
+
+name = "deep-json-merger"
+
+version = "1.0.0"
+
+difficulty = "medium"
+
+category = "software-engineering"
+
+tags = ["python", "json", "data-structures"]
+
+[environment]
+
+os = "linux"
+
+image = "ubuntu:22.04"
+
+timeout_seconds = 300
+
+memory_limit = "256mb"
+
+cpu_limit = "0.5"
+
+network_policy = "none"
+
+[verifier]
+
+environment = "harbor-verifier-ubuntu-22.04"
+
+workspace_mount = "ro"

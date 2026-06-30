@@ -1,0 +1,6 @@
+{
+    "binary_reward": 0.0,
+    "shaped_reward": -0.05,
+    "steps_taken": 10,
+    "test_output": "Verification failed: Expected 3 links, found 4.\n"
+}

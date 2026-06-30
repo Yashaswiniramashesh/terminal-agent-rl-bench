@@ -1,0 +1,6 @@
+{
+    "binary_reward": 0.0,
+    "shaped_reward": -0.02,
+    "steps_taken": 7,
+    "test_output": "============================= test session starts ==============================\nplatform linux -- Python 3.11.15, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python\ncachedir: .pytest_cache\nrootdir: /tests\ncollecting ... collected 3 items\n\n../tests/test_parser.py::test_counts_all_errors FAILED                   [ 33%]\n../tests/test_parser.py::test_returns_nonzero PASSED                     [ 66%]\n../tests/test_parser.py::test_does_not_overcount PASSED                  [100%]\n\n=================================== FAILURES ===================================\n____________________________ test_counts_all_errors ____________________________\n\n    def test_counts_all_errors():\n        result = count_errors(\"/app/server.log\")\n>       assert result == 10, f\"Expected 10, got {result}\"\nE       AssertionError: Expected 10, got 1\nE       assert 1 == 10\n\n/tests/test_parser.py:8: AssertionError\n=========================== short test summary info ============================\nFAILED ../tests/test_parser.py::test_counts_all_errors - AssertionError: Expe...\n========================= 1 failed, 2 passed in 0.01s ==========================\nREWARD = 0 (FAIL)\n"
+}

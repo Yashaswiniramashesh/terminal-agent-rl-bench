@@ -1,0 +1,6 @@
+{
+    "binary_reward": 0.0,
+    "shaped_reward": 0.0,
+    "steps_taken": 1,
+    "test_output": "Verification failed!\nREWARD = 0 (FAIL)\n"
+}

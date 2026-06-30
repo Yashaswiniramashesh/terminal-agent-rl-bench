@@ -1,0 +1,5 @@
+atttempt_adv1: Direct JSON Output Generation (Hardcoding)
+atttempt_adv2: User Settings Data Mutation
+atttempt_adv3: Reward File Spoofing - FAIL
+atttempt_adv4: Test Verification Script Tampering
+atttempt_adv5: Flattening Defaults Template

@@ -1,0 +1,15 @@
+{
+
+  "theme": "light",
+
+  "font_size": 14,
+
+  "features": {
+
+    "beta_testing": true,
+
+    "experiments": false
+
+  }
+
+}

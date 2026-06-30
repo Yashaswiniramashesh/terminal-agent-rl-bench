@@ -1,0 +1,20 @@
+2024-01-01 10:00:01 INFO Server started
+2024-01-01 10:00:05 ERROR Connection refused
+2024-01-01 10:00:06 INFO Retrying
+2024-01-01 10:00:07 ERROR Timeout reached
+2024-01-01 10:00:08 INFO Connected
+2024-01-01 10:00:09 ERROR Auth failed
+2024-01-01 10:00:10 INFO Session started
+2024-01-01 10:00:11 ERROR Rate limit hit
+2024-01-01 10:00:12 INFO Processing
+2024-01-01 10:00:13 ERROR Disk full
+2024-01-01 10:00:14 INFO Cleanup started
+2024-01-01 10:00:15 ERROR Memory exceeded
+2024-01-01 10:00:16 INFO Recovery started
+2024-01-01 10:00:17 ERROR Network lost
+2024-01-01 10:00:18 INFO Reconnecting
+2024-01-01 10:00:19 ERROR SSL error
+2024-01-01 10:00:20 INFO Handshake done
+2024-01-01 10:00:21 ERROR Parse failed
+2024-01-01 10:00:22 INFO Done
+2024-01-01 10:00:23 ERROR Shutdown forced
