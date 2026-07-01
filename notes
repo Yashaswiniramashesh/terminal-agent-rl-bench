@@ -1,0 +1,34 @@
+HF TOKEN
+
+export LLM_PROVIDER="hf"
+export HF_MODEL="qwen"
+unset HF_MODEL
+export HF_MODEL="llama"
+
+"{\"theme\": \"dark\", \"font_size\": 14, \"features\": {\"beta_testing\": true, \"experiments\": true}}\n{\"theme\": \"dark\", \"font_size\": 14, \"features\": {\"beta_testing\": true, \"experiments\": true}}\n{\"theme\": \"dark\", \"font_size\": 14, \"features\": {\"beta_testing\": true, \"experiments\": true}}\nVerification successful!\n"
+
+
+U     group
+-rw- r-x r-x
+111 101 101
+
+rwx
+
+
+chmod +x file
+
+rwx
+111 
+
+chmod 744 file
+
+
+docker build -t task1_dep_image:v1.0 .   to build the image
+docker image ls      to check the image generation
+
+docker run --rm -v /Users/yashaswiniramasheshu/Documents/projects/rl_data/tasks/task_broken_log_parser/tests:/tests -v /tmp:/logs -v ../solution:/solution task1_dep_image:v1.0 sleep 3600
+                 to run the container with mounting tetss and solution
+
+docker exec -it 95d49bdc1f73 bash          to login to the docker container
+
+docker rm --force 95d49bdc1f73.           remove the continer 
