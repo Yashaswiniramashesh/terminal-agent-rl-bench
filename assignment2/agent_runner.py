@@ -93,6 +93,7 @@ class Harness(object):
             print("*" * 90)
             print(json.dumps(result, indent=3))
             print("*" * 90)
+            print("Sleeping for 20 seconds to avoid HF rate limiting")
             sleep(20)
 
             if is_complete:
