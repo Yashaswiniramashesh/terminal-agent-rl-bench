@@ -26,23 +26,6 @@ A custom RL environment builder spins up isolated Docker containers per task, or
 ### Evaluation
 An LLM-as-a-Judge pipeline performs pairwise and prompt-wise scoring across generated and handcrafted trajectories, paired with a statistical reliability report analyzing judge consistency.
 
-### Architecture
-
-```text
-Task Definition ──▶ env_builder.py ──▶ Docker Container ──▶ Agent (Qwen / Llama)
-                                                                 │
-                                                                 ▼
-                                                  trajectory.json + rewards.json
-                                                                 │
-                                                                 ▼
-                                                   llm_grader.ipynb (Judge)
-                                                                 │
-                                                                 ▼
-                                                    Statistical Reliability Report
-```
-
----
-
 ## Why It Matters
 This project mirrors the real-world infrastructure used to train and evaluate coding agents in production reinforcement learning pipelines. By covering **synthetic data generation**, **reward modeling**, **sandboxed execution**, and **judge reliability analysis**, it demonstrates the exact skill set powering frontier agent training.
 
