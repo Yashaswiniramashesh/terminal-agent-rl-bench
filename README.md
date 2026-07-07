@@ -10,7 +10,7 @@ An end-to-end RL benchmarking pipeline for LLM coding agents, built around the *
   <img src="https://img.shields.io/badge/Jupyter-Evaluation_Notebooks-F37626?logo=jupyter&logoColor=white" alt="Jupyter">
   <img src="https://img.shields.io/badge/License-MIT-lightgrey" alt="License">
 </p>
-----
+
 ## Key Components
 
 ### Task Generation
