@@ -1,3 +1,90 @@
+# End-to-End RL Benchmarking Pipeline for LLM Coding Agents
+
+An end-to-end RL benchmarking pipeline for LLM coding agents, built around the **Terminal-Bench 2.0** task format. This project spans the full lifecycle: synthetic task generation, sandboxed agent execution, and automated evaluation.
+
+
+<p align="left">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-blue" alt="Python">
+  <img src="https://img.shields.io/badge/Docker-Sandboxed_Execution-2496ED?logo=docker&logoColor=white" alt="Docker">
+  <img src="https://img.shields.io/badge/Terminal--Bench-2.0_Compliant-success" alt="Terminal-Bench">
+  <img src="https://img.shields.io/badge/Jupyter-Evaluation_Notebooks-F37626?logo=jupyter&logoColor=white" alt="Jupyter">
+  <img src="https://img.shields.io/badge/License-MIT-lightgrey" alt="License">
+</p>
+----
+## Key Components
+
+### Task Generation
+A synthetic data generator produces Terminal-Bench 2.0–compliant tasks, complemented by a curated set of handcrafted tasks for RL scaffolding.
+
+### Agent Execution
+A custom RL environment builder spins up isolated Docker containers per task, orchestrating step-by-step agent trajectories against multiple open-weight models (*Qwen2.5-Coder-32B*, *Llama-3.3-70B*). Each run logs:
+* Full reasoning traces
+* Executed commands
+* System exit codes
+* Both binary and shaped rewards
+
+### Evaluation
+An LLM-as-a-Judge pipeline performs pairwise and prompt-wise scoring across generated and handcrafted trajectories, paired with a statistical reliability report analyzing judge consistency.
+
+### Architecture
+
+```text
+Task Definition ──▶ env_builder.py ──▶ Docker Container ──▶ Agent (Qwen / Llama)
+                                                                 │
+                                                                 ▼
+                                                  trajectory.json + rewards.json
+                                                                 │
+                                                                 ▼
+                                                   llm_grader.ipynb (Judge)
+                                                                 │
+                                                                 ▼
+                                                    Statistical Reliability Report
+```
+
+---
+
+## Why It Matters
+This project mirrors the real-world infrastructure used to train and evaluate coding agents in production reinforcement learning pipelines. By covering **synthetic data generation**, **reward modeling**, **sandboxed execution**, and **judge reliability analysis**, it demonstrates the exact skill set powering frontier agent training.
+
+## What's Included
+* Full architectural design write-ups
+* Rigorous self-assessment reports
+* Comprehensive, reproducible setup instructions
+
+
+
+## Architecture
+
+```
+Task Definition ──▶ env_builder.py ──▶ Docker Container ──▶ Agent (Qwen / Llama)
+                                              │
+                                              ▼
+                                  trajectory.json + rewards.json
+                                              │
+                                              ▼
+                                   llm_grader.ipynb (LLM-as-a-Judge)
+                                              │
+                                              ▼
+                                  Reliability Report (pairwise + prompt-wise)
+```
+
+---
+
+## Sample Results
+
+| Task | Agent | Model | Steps | Binary Reward | Shaped Reward | Result |
+|---|---|---|---|---|---|---|
+| `spellcheck-word-boundary` | QwenAgent | Qwen2.5-Coder-32B-Instruct | 8 | 1.0 | 0.97 | ✅ PASS |
+| `merge-configs-deep` | QwenAgent | Qwen2.5-Coder-32B-Instruct | — | — | — | ✅ PASS |
+| _(add more rows as you generate results)_ | MetaAgent | Llama-3.3-70B-Instruct | — | — | — | — |
+
+> Full trajectories and rewards for every run are saved under `results/<Agent>/<task>/attemptN/`.
+
+---
+
+
+
+
 ### Repository Structure 
 
 This repository contains the source code, generated data, execution results, and documentation, organized by tasks.
